@@ -1,7 +1,7 @@
 FROM php:7.3-fpm-alpine
 
-ENV PHPREDIS_VERSION 4.3.0
-ENV DB_SERVER_VERSION mariadb-10.3.15
+ENV PHPREDIS_VERSION 5.1.1
+ENV DB_SERVER_VERSION mariadb-10.4.11
 
 RUN apk add --no-cache \
         freetype-dev \
