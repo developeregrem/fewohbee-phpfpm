@@ -2,7 +2,7 @@
 
 # pve-phpfpm
 
-This Docker image is based on [PHP 7.3-fpm-alpine](https://hub.docker.com/_/php/), [phpredis](https://github.com/phpredis/phpredis) and latest [composer](https://hub.docker.com/_/composer).
+This Docker image is based on [PHP 7.4-fpm-alpine](https://hub.docker.com/_/php/), [phpredis](https://github.com/phpredis/phpredis) and latest [composer](https://hub.docker.com/_/composer).
 This image is optimized for the [guesthouse administration](https://github.com/developeregrem/pve) tool (Pensionsverwaltung).
 When running this image it will clone the latest stable release of the tool and installs all required PHP/Symfony dependencies.
 
