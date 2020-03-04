@@ -5,6 +5,7 @@ if [ ! -f "/firstrun" ]; then
     if [ ! -d "$pveFolder" ]; then
         git clone https://github.com/developeregrem/pve.git $pveFolder
         cd $pveFolder
+        composer install
     else
         cd $pveFolder
         git fetch --tags
@@ -14,6 +15,7 @@ if [ ! -f "/firstrun" ]; then
     git checkout -f $latestTag
     
     composer update --no-dev --optimize-autoloader
+    # make sure that user www-data from php and web container can access files
     chown -R 82:33 $pveFolder
     
     su -p www-data -s /bin/sh -c "php bin/console --no-interaction doctrine:migration:migrate"
