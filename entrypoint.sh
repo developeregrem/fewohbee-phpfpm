@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ ! -f "/firstrun" ]; then
-    
+    echo "0" > /firstrun
     pveFolder=/var/www/html/pve
     if [ ! -d "$pveFolder" ]; then
         git clone https://github.com/developeregrem/pve.git $pveFolder
@@ -14,7 +14,12 @@ if [ ! -f "/firstrun" ]; then
     latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
     git checkout -f $latestTag
     
-    composer update --no-dev --optimize-autoloader
+    if [ "$APP_ENV" == "prod"]
+    then
+        composer update --no-dev --optimize-autoloader
+    else
+        composer update
+    fi
     # make sure that user www-data from php and web container can access files
     chown -R 82:33 $pveFolder
     
