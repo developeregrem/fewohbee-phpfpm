@@ -1,9 +1,9 @@
 #!/bin/sh
 if [ ! -f "/firstrun" ]; then
     echo "0" > /firstrun
-    pveFolder=/var/www/html/pve
+    pveFolder=/var/www/html/fewohbee
     if [ ! -d "$pveFolder" ]; then
-        git clone https://github.com/developeregrem/pve.git $pveFolder
+        git clone https://github.com/developeregrem/fewohbee.git $pveFolder
         cd $pveFolder
         composer install
     else
@@ -14,7 +14,7 @@ if [ ! -f "/firstrun" ]; then
     latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
     git checkout -f $latestTag
     
-    if [ "$APP_ENV" == "prod"]
+    if [ "$APP_ENV" == "prod" ]
     then
         composer update --no-dev --optimize-autoloader
     else
