@@ -1,9 +1,9 @@
 
 
-# pve-phpfpm
+# fewohbee-phpfpm
 
 This Docker image is based on [PHP 7.4-fpm-alpine](https://hub.docker.com/_/php/), [phpredis](https://github.com/phpredis/phpredis) and latest [composer](https://hub.docker.com/_/composer).
-This image is optimized for the [guesthouse administration](https://github.com/developeregrem/pve) tool (Pensionsverwaltung).
+This image is optimized for the [guesthouse administration](https://github.com/developeregrem/fewohbee) tool (Pensionsverwaltung).
 When running this image it will clone the latest stable release of the tool and installs all required PHP/Symfony dependencies.
 
 ## supported tags
@@ -16,14 +16,14 @@ When running this image it will clone the latest stable release of the tool and 
 ## Volume structure
 
  - `/var/www` - web accessible resources (php files)
- - `/usr/local/etc/php` - custom php config file (see example [conf.ini](https://github.com/developeregrem/pve-dockerized/blob/master/conf/php/conf.ini))
+ - `/usr/local/etc/php` - custom php config file (see example [conf.ini](https://github.com/developeregrem/fewohbee-dockerized/blob/master/conf/php/conf.ini))
 
 ## Environment variables
 
 ### PHP
  - `TZ` - time zone e.g. "Europe/Berlin"
 
-### guesthouse administration (pve, symfony specific)
+### guesthouse administration (fewohbee, symfony specific)
 
 - LOCALE - language of the application (e.g. de)
 - APP_ENV - environment (prod|dev)
@@ -37,6 +37,6 @@ When running this image it will clone the latest stable release of the tool and 
  
 ## Example usage
 
-This image is part of the [pve-dockerized](https://github.com/developeregrem/pve-dockerized) docker-compose setup. A docker-compose file can be found here:
+This image is part of the [fewohbee-dockerized](https://github.com/developeregrem/fewohbee-dockerized) docker-compose setup. A docker-compose file can be found here:
 
-- https://github.com/developeregrem/pve-dockerized
+- https://github.com/developeregrem/fewohbee-dockerized
