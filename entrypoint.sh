@@ -14,7 +14,7 @@ if [ ! -f "/firstrun" ]; then
     latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
     git checkout -f $latestTag
     
-    if [ "$APP_ENV" == "prod" ]
+    if [ "$APP_ENV" == "prod" ] || [ "$APP_ENV" == "redis" ]
     then
         composer update --no-dev --optimize-autoloader
     else
