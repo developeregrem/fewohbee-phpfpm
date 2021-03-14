@@ -11,7 +11,13 @@ if [ ! -f "/firstrun" ]; then
         git fetch --tags
     fi
     
-    latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
+    if [ "$FEWOHBEE_VERSION" == "latest" ]
+    then
+        latestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
+    else
+        latestTag="$FEWOHBEE_VERSION"
+    fi
+    
     git checkout -f $latestTag
     
     if [ "$APP_ENV" == "prod" ] || [ "$APP_ENV" == "redis" ]

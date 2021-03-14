@@ -2,13 +2,14 @@
 
 # fewohbee-phpfpm
 
-This Docker image is based on [PHP 7.4-fpm-alpine](https://hub.docker.com/_/php/), [phpredis](https://github.com/phpredis/phpredis) and latest [composer](https://hub.docker.com/_/composer).
+This Docker image is based on [PHP 8.0-fpm-alpine](https://hub.docker.com/_/php/), [phpredis](https://github.com/phpredis/phpredis) and latest [composer](https://hub.docker.com/_/composer).
 This image is optimized for the [guesthouse administration](https://github.com/developeregrem/fewohbee) tool (Pensionsverwaltung). See [FewohBee's website](https://www.fewohbee.de)
 When running this image it will clone the latest stable release of the tool and installs all required PHP/Symfony dependencies.
 
 ## supported tags
 
- - `:latest` - latest build
+ - `:8.0` - PHP 8.0 latest build
+ - `:7.4-latest`- PHP 7.4 latest build
 
 ## Supported architectures  
 [`amd64`](https://hub.docker.com/r/amd64/php/),  [`arm32v7`](https://hub.docker.com/r/arm32v7/php/), [`arm64v8`](https://hub.docker.com/r/arm64v8/php/)
@@ -25,15 +26,19 @@ When running this image it will clone the latest stable release of the tool and 
 
 ### guesthouse administration (fewohbee, symfony specific)
 
-- LOCALE - language of the application (e.g. de)
+- LOCALE - language of the application (e.g. de, en)
+- FEWOHBEE_VERSION - which version of fewohbee shall be used (default: latest)
 - APP_ENV - environment (prod|dev)
 - APP_SECRET - random secret
 - DATABASE_URL - db schema url
-- MAILER_URL - mailer schema url
+- MAILER_DSN - mailer schema url
 - FROM_MAIL - mail address
 - FROM_NAME - name (e.g. "Pension XY)
 - RETURN_PATH - return mail address (mostly the same like from_mail)
-- MAIL_HOST - mail domain (e.g. domain.tld)
+- DB_SERVER_VERSION - specify the version of your database (e.g. mariadb-10.5.9)
+- REDIS_HOST - host of the redis server for caching
+- REDIS_IDX - which redis index is used
+- WEB_HOST - host from where images for PDF files shall be loaded
  
 ## Example usage
 
