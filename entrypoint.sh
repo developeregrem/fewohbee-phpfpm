@@ -30,6 +30,9 @@ if [ ! -f "/firstrun" ]; then
     chown -R 82:33 $pveFolder
     
     su -p www-data -s /bin/sh -c "php bin/console --no-interaction doctrine:migration:migrate"
+
+    # clear doctrine cache
+    su -p www-data -s /bin/sh -c "php bin/console cache:pool:clear doctrine.result_cache_pool doctrine.system_cache_pool"
 fi
 echo "1" > /firstrun
 
