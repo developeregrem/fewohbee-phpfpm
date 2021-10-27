@@ -9,6 +9,7 @@ if [ ! -f "/firstrun" ]; then
     else
         cd $pveFolder
         git fetch --tags
+        rm -rf var/cache
     fi
     
     if [ "$FEWOHBEE_VERSION" == "latest" ]
