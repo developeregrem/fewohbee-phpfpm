@@ -2,12 +2,13 @@
 
 # fewohbee-phpfpm
 
-This Docker image is based on [PHP 8.0-fpm-alpine](https://hub.docker.com/_/php/), [phpredis](https://github.com/phpredis/phpredis) and latest [composer](https://hub.docker.com/_/composer).
+This Docker image is based on [PHP 8.1-fpm-alpine](https://hub.docker.com/_/php/), [phpredis](https://github.com/phpredis/phpredis) and latest [composer](https://hub.docker.com/_/composer).
 This image is optimized for the [guesthouse administration](https://github.com/developeregrem/fewohbee) tool (Pensionsverwaltung). See [FewohBee's website](https://www.fewohbee.de)
 When running this image it will clone the latest stable release of the tool and installs all required PHP/Symfony dependencies.
 
 ## supported tags
-
+ - `:latest` - always pull the latest image
+ - `:8.1` - PHP 8.1 latest build
  - `:8.0` - PHP 8.0 latest build
  - `:7.4-latest`- PHP 7.4 latest build
 
