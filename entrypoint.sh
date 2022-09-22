@@ -8,7 +8,6 @@ if [ ! -f "/firstrun" ]; then
     if [ ! -d "$pveFolder" ]; then
         git clone https://github.com/developeregrem/fewohbee.git $pveFolder
         cd $pveFolder
-        composer install --no-interaction
     else
         cd $pveFolder
         git fetch --tags
@@ -26,9 +25,9 @@ if [ ! -f "/firstrun" ]; then
     
     if [ "$APP_ENV" == "prod" ] || [ "$APP_ENV" == "redis" ]
     then
-        composer update --no-dev --no-interaction --optimize-autoloader
+        composer install --no-dev --no-interaction --optimize-autoloader
     else
-        composer --no-interaction update
+        composer --no-interaction install
     fi
     # make sure that user www-data from php and web container can access files
     chown -R 82:33 $pveFolder
