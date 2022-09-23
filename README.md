@@ -13,7 +13,7 @@ When running this image it will clone the latest stable release of the tool and 
  - `:7.4-latest`- PHP 7.4 latest build
 
 ## Supported architectures  
-[`amd64`](https://hub.docker.com/r/amd64/php/),  [`arm32v7`](https://hub.docker.com/r/arm32v7/php/), [`arm64v8`](https://hub.docker.com/r/arm64v8/php/)
+[`amd64`](https://hub.docker.com/r/amd64/php/), [`arm64v8`](https://hub.docker.com/r/arm64v8/php/)
 		
 ## Volume structure
 

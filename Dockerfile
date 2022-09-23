@@ -19,8 +19,8 @@ RUN apk add --no-cache \
         git \
         zip \
         unzip \
-        tzdata \
-	&& docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
+        tzdata
+RUN docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
 	&& docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install intl pdo_mysql xml opcache redis
 
