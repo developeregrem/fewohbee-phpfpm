@@ -13,6 +13,10 @@ RUN apk add --update --no-cache \
         zip \
         unzip \
         tzdata \
+	freetype \
+        libjpeg-turbo \
+        libpng \
+        libxml2 \
         icu \
         # required for full langugae support: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.16.0#ICU_data_split
         icu-data-full 
