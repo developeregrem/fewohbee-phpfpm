@@ -1,5 +1,5 @@
 # docker-compose build
-FROM php:8.3-fpm-alpine
+FROM php:8.4-fpm-alpine
 
 ENV PHPREDIS_VERSION 6.0.2
 ENV FEWOHBEE_VERSION latest
