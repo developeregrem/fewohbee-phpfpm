@@ -37,4 +37,4 @@ jobs:
         context: .
         platforms: linux/amd64,linux/arm64
         push: ${{ github.event_name != 'pull_request' }}
-        tags: developeregrem/fewohbee-phpfpm:latest,developeregrem/fewohbee-phpfpm:8.2 
+        tags: developeregrem/fewohbee-phpfpm:latest
