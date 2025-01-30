@@ -1,7 +1,7 @@
 # docker-compose build
-FROM php:8.3-fpm-alpine
+FROM php:8.4-fpm-alpine
 
-ENV PHPREDIS_VERSION 6.0.2
+ENV PHPREDIS_VERSION 6.1.0
 ENV FEWOHBEE_VERSION latest
 
 RUN mkdir -p /usr/src/php/ext/redis \
