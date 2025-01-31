@@ -3,7 +3,7 @@ FROM php:8.4-fpm-alpine
 
 ENV FEWOHBEE_VERSION latest
 
-ARG PHP_EXTS="gd pdo_mysql intl opcache redis"
+ARG PHP_EXTS="redis intl gd opcache pdo_mysql"
 
 ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
