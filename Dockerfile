@@ -1,9 +1,9 @@
 # docker-compose build
-FROM php:8.4-fpm-alpine
+FROM php:8.5-fpm-alpine
 
-ENV FEWOHBEE_VERSION latest
+ENV FEWOHBEE_VERSION=latest
 
-ARG PHP_EXTS="redis intl gd opcache pdo_mysql"
+ARG PHP_EXTS="redis intl gd pdo_mysql"
 
 ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 

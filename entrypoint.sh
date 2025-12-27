@@ -23,11 +23,13 @@ if [ ! -f "/firstrun" ]; then
     
     git checkout -f $latestTag
     
+    appDebug="APP_DEBUG=0"
     if [ "$APP_ENV" == "prod" ] || [ "$APP_ENV" == "redis" ]
     then
         composer install --no-dev --no-interaction --optimize-autoloader
     else
         composer --no-interaction install
+        appDebug="APP_DEBUG=1"
     fi
     # make sure that user www-data from php and web container can access files
     chown -R 82:33 $pveFolder
@@ -36,6 +38,9 @@ if [ ! -f "/firstrun" ]; then
 
     # clear doctrine cache
     su -p www-data -s /bin/sh -c "php bin/console cache:pool:clear doctrine.result_cache_pool doctrine.system_cache_pool"
+
+    # compile assets
+    su -p www-data -s /bin/sh -c "$appDebug php bin/console asset-map:compile"
 fi
 echo "1" > /firstrun
 
