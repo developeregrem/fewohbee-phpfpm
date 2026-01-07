@@ -10,7 +10,7 @@ if [ ! -f "/firstrun" ]; then
         cd $pveFolder
     else
         cd $pveFolder
-        git fetch --tags
+        git fetch --tags --force
         rm -rf var/cache
     fi
     
