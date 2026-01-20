@@ -14,7 +14,7 @@ jobs:
   build:
 
     #runs-on: ubuntu-latest
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -32,10 +32,20 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     
-    - name: Build and push
+    - name: Build and push (fpm)
       uses: docker/build-push-action@v4
       with:
         context: .
+        target: fpm
         platforms: linux/amd64,linux/arm64
         push: ${{ github.event_name != 'pull_request' }}
         tags: developeregrem/fewohbee-phpfpm:latest
+
+    - name: Build and push (cli)
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        target: cli
+        platforms: linux/amd64,linux/arm64
+        push: ${{ github.event_name != 'pull_request' }}
+        tags: developeregrem/fewohbee-phpcli:latest
