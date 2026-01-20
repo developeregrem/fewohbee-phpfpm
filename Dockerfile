@@ -1,5 +1,5 @@
 # docker-compose build
-FROM php:8.5-fpm-alpine
+FROM php:8.5-fpm-alpine AS base
 
 ENV FEWOHBEE_VERSION=latest
 
@@ -24,7 +24,13 @@ ADD entrypoint.sh /
 
 RUN chmod +x /entrypoint.sh
 
+FROM base AS fpm
 ENTRYPOINT ["/entrypoint.sh"]
-
 EXPOSE 9000
 CMD ["php-fpm"]
+
+FROM base AS cli
+COPY cron-entrypoint.sh /usr/local/bin/cron-entrypoint.sh
+RUN chmod +x /usr/local/bin/cron-entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/cron-entrypoint.sh"]
+CMD ["crond","-f","-L","/dev/stdout"]
