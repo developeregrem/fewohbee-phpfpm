@@ -30,4 +30,7 @@ EXPOSE 9000
 CMD ["php-fpm"]
 
 FROM base AS cli
-CMD ["crond","-f","-L","/dev/stdout","-c","/etc/cron.d"]
+COPY cron-entrypoint.sh /usr/local/bin/cron-entrypoint.sh
+RUN chmod +x /usr/local/bin/cron-entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/cron-entrypoint.sh"]
+CMD ["crond","-f","-L","/dev/stdout"]
