@@ -24,6 +24,8 @@ ADD entrypoint.sh /
 
 RUN chmod +x /entrypoint.sh
 
+COPY conf.ini /usr/local/etc/php/conf.d/conf.ini
+
 FROM base AS fpm
 ENTRYPOINT ["/entrypoint.sh"]
 EXPOSE 9000
@@ -32,5 +34,7 @@ CMD ["php-fpm"]
 FROM base AS cli
 COPY cron-entrypoint.sh /usr/local/bin/cron-entrypoint.sh
 RUN chmod +x /usr/local/bin/cron-entrypoint.sh
+COPY cron.d/www-data /etc/crontabs/www-data
+RUN chown root:root /etc/crontabs/www-data && chmod 600 /etc/crontabs/www-data
 ENTRYPOINT ["/usr/local/bin/cron-entrypoint.sh"]
 CMD ["crond","-f","-L","/dev/stdout"]
