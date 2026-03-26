@@ -3,7 +3,7 @@ FROM php:8.5-fpm-alpine AS base
 
 ENV FEWOHBEE_VERSION=latest
 
-ARG PHP_EXTS="redis intl gd pdo_mysql"
+ARG PHP_EXTS="redis intl gd pdo_mysql exif"
 
 ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
