@@ -2,3 +2,5 @@ SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 0 * * * * cd /var/www/html/fewohbee && /usr/local/bin/php bin/console calendar:import:sync --force
+*/15 * * * * cd /var/www/html/fewohbee && /usr/local/bin/php bin/console workflow:process-scheduled
+0 3  * * * cd /var/www/html/fewohbee && /usr/local/bin/php bin/console workflow:purge-logs --days=90
