@@ -12,6 +12,7 @@ if [ ! -f "/firstrun" ]; then
         cd $pveFolder
         git fetch --tags --force
         rm -rf var/cache
+        rm -rf public/assets
     fi
     
     if [ "$FEWOHBEE_VERSION" == "latest" ]
